@@ -7,7 +7,9 @@ class FaceRecognition(MycroftSkill):
 
     @intent_file_handler('recognition.face.intent')
     def handle_recognition_face(self, message):
-        self.speak_dialog('recognition.face')
+        name = message.data.get('name')
+        
+        self.speak_dialog('recognition.face', data={'name': name})
 
 
 def create_skill():
